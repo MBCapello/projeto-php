@@ -1,9 +1,14 @@
 <?php
+include 'header.php';
 $url = $_SERVER['REQUEST_URI'];
+include 'functions/functions.php';
 
 match($url) {
-    '/' => include 'pages\home\index.php',
-    '/login' => include 'pages\login\index.php',
-    '/cadastro' => include 'pages\cadastro\index.php',
-    default => include 'pages\notFound\index.php'
+    '/' => home(),
+    '/login' => login(),
+    '/cadastro' => cadastro(),
+    '/listar' => lista(),
+    default => notFound()
 };
+
+include 'footer.php';
