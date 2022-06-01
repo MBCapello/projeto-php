@@ -1,13 +1,18 @@
 <?php
+
 include 'header.php';
-$url = $_SERVER['REQUEST_URI'];
+
+$url = explode('?', $_SERVER['REQUEST_URI']);
+
 include 'functions/functions.php';
 
-match($url) {
+match($url[0]) {
     '/' => home(),
     '/login' => login(),
     '/cadastro' => cadastro(),
     '/listar' => lista(),
+    '/editar' => editar(),
+    '/excluir' => excluir(),
     default => notFound()
 };
 
